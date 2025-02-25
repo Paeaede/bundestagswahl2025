@@ -15,7 +15,7 @@ def load_geodata():
 # Load spreadsheet data
 @st.cache_data
 def load_spreadsheet():
-    file_path = './data/kerg_filtered.csv'
+    file_path = './data/kerg2025_filtered.csv'
     # Read the CSV file, using the first three rows as header
     df = pd.read_csv(file_path, sep=';', header=[0, 1, 2])
 
@@ -30,7 +30,7 @@ def load_spreadsheet():
 
 @st.cache_data
 def load_voting_data() -> (pd.DataFrame, list):
-    file_path = './data/kerg_ordered.csv'
+    file_path = './data/kerg2025.csv'
     # Read the CSV file, using the first three rows as header
     df = pd.read_csv(file_path, sep=';')
     # Get unique values from the "Category" column
@@ -87,7 +87,7 @@ with tab1:
     vote = st.sidebar.selectbox('Erst oder Zweitstimme', votes)
 
     # Dropdown 2: Choose a metric (e.g., Zweitstimmen or Erststimmen)
-    years = ['Endgültig', 'Vorperiode']
+    years = ['Vorläufig', 'Vorperiode']
     year = st.sidebar.selectbox('Wahldatum', years)
 
     # Create Folium map
